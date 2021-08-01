@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "merge_logs": true,
+            "name": "nodejs-docker-sample",
+            "out_file": "/tmp/nodejs-docker-sample.log",
+            "log_date_format": "MM/DD/YYYY HH:mm:ss",
+            "script": "./src/index.js"
+        }
+    ]
+}

@@ -1,0 +1,2 @@
+docker build . -t phucdang/socket-service
+docker run -p 7071:7071 -d phucdang/socket-service

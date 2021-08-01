@@ -1,0 +1,14 @@
+{
+    "name": "socket-docker",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Socket on Docker",
+    "author": "First Last <first.last@example.com>",
+    "main": "server.js",
+    "scripts": {
+        "start": "node ./src/index.js"
+    },
+    "dependencies": {
+        "ws": "^7.5.0"
+    }
+}
