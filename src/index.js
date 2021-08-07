@@ -19,7 +19,6 @@ subscriber.on("message", (channel, message) => {
     if (channel === WS_CHANNEL) {
         wss.clients.forEach(client => {
             if (client.readyState === WebSocket.OPEN) {
-                console.log('vao day')
                 client.send(message);
             }
         });
@@ -29,11 +28,7 @@ subscriber.on("message", (channel, message) => {
 wss.on("connection", ws => {
     console.log("new connection");
     ws.on("message", data => {
-        let message = JSON.parse(data);
-        message = {
-            ...message,
-            port: PORT
-        }
+        const message = JSON.parse(data);
         if (message.type === "get-users") {
             ws.send(JSON.stringify(message));
         }
