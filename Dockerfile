@@ -16,5 +16,10 @@ RUN npm install -g pm2
 # Bundle app source
 
 COPY . /usr/src/app
+EXPOSE 7071
 
+ENV REDIS_HOST=redis-15502.c283.us-east-1-4.ec2.cloud.redislabs.com \
+    REDIS_PORT=15502 \
+    REDIS_PASS=Fdc6LmJM7r77uRqDdoUjfgKodTuAwPVP \
+    DOMAIN_CONNECTION=https://msapi.template.net
 CMD  pm2 start --no-daemon  processes.json
