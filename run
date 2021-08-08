@@ -1,0 +1,3 @@
+./build
+cd ./nginx-docker
+./build-run

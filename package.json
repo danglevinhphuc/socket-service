@@ -6,7 +6,7 @@
     "author": "First Last <first.last@example.com>",
     "main": "server.js",
     "scripts": {
-        "start": "node ./dist/index.js",
+        "start": "yarn build && node ./dist/index.js",
         "build": "rm -rf dist && webpack"
     },
     "dependencies": {
@@ -16,6 +16,7 @@
         "lodash": "^4.17.21",
         "path": "^0.12.7",
         "redis": "^3.1.2",
+        "uuid": "^8.3.2",
         "webpack-node-externals": "^3.0.0",
         "ws": "^7.5.0"
     },
