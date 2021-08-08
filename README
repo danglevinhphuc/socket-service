@@ -2,3 +2,6 @@ SOCKET SERVICE
 
 #yarn
 #yarn start
+
+BUILD DOCKER 
+# ./run
