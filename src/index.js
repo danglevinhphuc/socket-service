@@ -5,11 +5,14 @@ import http from 'http';
 import { publisher, subscriber } from './configuration/caching/index';
 import { getUuid } from './helpers/uuid';
 import { isRoomConnection } from './helpers/common';
-
+import bodyParser from "body-parser"
 
 const app = express();
 const PORT = process.env.PORT || 7071
 app.use(initConfiguration())
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
@@ -51,6 +54,13 @@ wss.on("connection", (ws, req) => {
 });
 
 subscriber.subscribe(WS_CHANNEL);
+
+app.post('/notify-download', (req, res) => {
+    const body = req.body
+    const { hookUrl } = req.query
+    console.log(body, hookUrl)
+    return res.json({ data: body });
+})
 
 server.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
